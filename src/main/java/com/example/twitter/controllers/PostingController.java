@@ -1,16 +1,11 @@
 package com.example.twitter.controllers;
 
 import com.example.twitter.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
+@AllArgsConstructor
 public class PostingController {
-
-
-    @Autowired
-    private UserService userService;
-
-
+    private final UserService userService;
 }
