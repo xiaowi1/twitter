@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Users View</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
+
+</head>
+<body>
+
+<table class=table>
+
+    <thead class=thead-dark>
+
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Login</th>
+        </tr>
+
+    </thead>
+    <tbody>
+    <tr th:each="user : ${allUsers}">
+        <form action="/userdetails" method="post" th:object="${user}">
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.surname}"></td>
+        <td th:text="${user.login}"></td>
+        <td>
+            <input type="hidden" name="name" th:value="${user.name}"/>
+            <input type="hidden" name="surname" th:value="${user.surname}"/>
+            <button value="Get Name and Surname">Get name and surname</button>
+        </td>
+        </form>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
