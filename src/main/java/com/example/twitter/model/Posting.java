@@ -1,9 +1,14 @@
 package com.example.twitter.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
 @Table
+@Getter
+@Setter
 public class Posting {
 
     @Id
@@ -14,29 +19,4 @@ public class Posting {
     @ManyToOne()
     @JoinColumn
     private User user;
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Long getPostId() {
-        return postId;
-    }
-
-    public void setPostId(Long postId) {
-        this.postId = postId;
-    }
-
 }
