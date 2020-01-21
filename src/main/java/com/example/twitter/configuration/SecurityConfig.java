@@ -1,7 +1,6 @@
 package com.example.twitter.configuration;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -13,12 +12,14 @@ import javax.sql.DataSource;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    public SecurityConfig(PasswordEncoder passwordEncoder,  DataSource dataSource) {
+        super();
+        this.passwordEncoder = passwordEncoder;
+        this.dataSource = dataSource;
+    }
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-    @Autowired
-    private DataSource dataSource;
+    private final PasswordEncoder passwordEncoder;
+    private final DataSource dataSource;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception{
