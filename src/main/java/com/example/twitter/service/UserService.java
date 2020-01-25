@@ -20,8 +20,8 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void savePost(Posting post) {
-
+    public User getUserByLogin(String login){
+        return userRepository.getUserByLogin(login).orElseThrow(() -> new RuntimeException("User doesnt exist" + login));
     }
 
     public List<User> getAllUsers() {

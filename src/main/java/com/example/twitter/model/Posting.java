@@ -19,4 +19,5 @@ public class Posting {
     @ManyToOne()
     @JoinColumn
     private User user;
+
 }
