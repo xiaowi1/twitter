@@ -1,26 +1,53 @@
 <!DOCTYPE html>
-<html lang="en"
-xmlns:th="http://www.w3.org/1999/xhtml">
-
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Test</title>
     <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
 </head>
 <body>
-<h1 class="col-lg-1">Twitter dla ubogich</h1>
-<form action = "/users">
-    <button class="btn btn-success" value = "Przeglądaj użytkowników">Przeglądaj użytkowników</button>
-</form>
-<form action = "/adduser">
-    <button class="btn btn-warning" value = "Dodaj użytkownika">Dodaj użytkownika</button>
-</form>
-<form action = "/addpost">
-    <button class="btn btn-warning" value = "Dodaj post">Dodaj post</button>
-</form>
-<form action = "/posts">
-    <button class="btn btn-warning" value = "Przeglądaj posty">Przeglądaj posty</button>
-</form>
-    <a type="button" class="btn btn-secondary btn-lg" href="/logout">Logout</a>
+<div class="container">
+    <div class="row">
+    <div class="col-3">
+        <h1 class="col-lg-1">Twitter dla ubogich</h1>
+        <form action="/users">
+            <button class="btn btn-success" value="Przeglądaj użytkowników">Przeglądaj użytkowników</button>
+        </form>
+        <form action="/adduser">
+            <button class="btn btn-warning" value="Dodaj użytkownika">Dodaj użytkownika</button>
+        </form>
+        <form action="/addpost">
+            <button class="btn btn-warning" value="Dodaj post">Dodaj post</button>
+        </form>
+        <form action="/posts">
+            <button class="btn btn-warning" value="Przeglądaj posty">Przeglądaj posty</button>
+        </form>
+        <a type="button" class="btn btn-secondary btn-lg" href="/logout">Logout</a>
+    </div>
+    <div class="col-9">
+        <h1 class="col-lg-1">Welcome </h1>
+        <table class=table th:each="post : ${posts}">
+
+            <thead class=thead-dark>
+
+            <tr>
+                <th>Name</th>
+                <th>Message</th>
+            </tr>
+
+            </thead>
+            <tbody>
+            <tr >
+                <td th:text="${post.getUser().getName()}"></td>
+                <td th:text="${post.message}"></td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+</div>
+
 </body>
 </html>
