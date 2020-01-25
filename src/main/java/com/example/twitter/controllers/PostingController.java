@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @AllArgsConstructor
 public class PostingController {
@@ -28,8 +30,8 @@ public class PostingController {
     }
 
     @PostMapping(value="/addpost")
-    public String addPost(@ModelAttribute Posting post){
-        postingService.savePost(post);
+    public String addPost(@ModelAttribute Posting post, HttpSession session){
+        postingService.savePost(post,session);
         return "index";
 
 

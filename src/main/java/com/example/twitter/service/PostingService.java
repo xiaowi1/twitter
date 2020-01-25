@@ -10,6 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Service
@@ -22,14 +23,12 @@ public class PostingService {
     private final PostingRepository postingRepository;
 
 
-    public User getUser() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String login = authentication.getName();
-        return userService.getUserByLogin(login);
+    public User getUser(HttpSession session) {
+        return userService.getUserByLogin(session.getAttribute("login").toString());
     }
 
-    public void savePost(Posting post) {
-        post.setUser(getUser());
+    public void savePost(Posting post,HttpSession session) {
+        post.setUser(getUser(session));
         postingRepository.save(post);    }
 
 

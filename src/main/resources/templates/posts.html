@@ -20,14 +20,9 @@
     <tbody>
     <tr th:each="post : ${allPosts}">
         <form action="/posts" method="post" th:object="${post}">
-            <td th:text="${user.name}"></td>
+            <td th:text="${post.name}"></td>
             <td th:text="${post.user}"></td>
             <td th:text="${post.message}"></td>
-            <td>
-                <input type="hidden" name="name" th:value="${user.name}"/>
-                <input type="hidden" name="surname" th:value="${user.surname}"/>
-                <button value="Get Name and Surname">Get name and surname</button>
-            </td>
         </form>
     </tr>
     </tbody>
