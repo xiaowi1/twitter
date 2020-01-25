@@ -1,29 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Posts View</title>
     <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
 </head>
 <body>
-<table class=table>
+<table class=table th:each="post : ${allPosts}">
 
     <thead class=thead-dark>
 
     <tr>
         <th>Name</th>
-        <th>Surname</th>
-        <th>Post</th>
+        <th>Message</th>
     </tr>
 
     </thead>
     <tbody>
-    <tr th:each="post : ${allPosts}">
-        <form action="/posts" method="post" th:object="${post}">
-            <td th:text="${post.name}"></td>
-            <td th:text="${post.user}"></td>
+    <tr >
+            <td th:text="${post.getUser().getName()}"></td>
             <td th:text="${post.message}"></td>
-        </form>
+
     </tr>
     </tbody>
 </table>
