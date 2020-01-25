@@ -1,6 +1,8 @@
 package com.example.twitter.controllers;
 
+import com.example.twitter.model.Posting;
 import com.example.twitter.model.User;
+import com.example.twitter.service.PostingService;
 import com.example.twitter.service.UserService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,6 +34,8 @@ public class UsersController {
         userService.saveUser(user);
         return "index";
     }
+
+
 
     @PostMapping(value="/userdetails")
     public String userDetails(@ModelAttribute User user) {
