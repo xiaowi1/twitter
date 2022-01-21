@@ -20,7 +20,7 @@
 		<spring.version>5.2.3.RELEASE</spring.version>
 		<lombok.version>1.18.10</lombok.version>
 		<!--TEST PROPERTIES-->
-		<h2.version>1.4.199</h2.version>
+		<h2.version>2.1.210</h2.version>
 	</properties>
 	<dependencies>
 		<!--PRODUCTION DEPENDENCIES-->
